@@ -124,14 +124,12 @@ fi
 if [[ $(dpkg --get-selections | grep -w "clamav-freshclam" | awk '{print $1}' | head -1) = clamav-freshclam ]]; then
 	systemctl disable clamav-freshclam
 fi
-#systemctl disable pppd-dns.service
-#systemctl disable nmbd
-systemctl disable apt-daily-upgrade.service
-systemctl disable apt-daily.service
-systemctl disable brltty-udev.service
-systemctl disable brltty.service
-systemctl disable geoclue.service
-systemctl disable motd-news.service
+systemctl mask apt-daily-upgrade.service
+systemctl mask apt-daily.service
+systemctl mask brltty-udev.service
+systemctl mask brltty.service
+systemctl mask geoclue.service
+systemctl mask motd-news.service
 systemctl disable wacom-inputattach@.service
 if [[ $(dpkg --get-selections | grep -w "ssh" | awk '{print $1}' | head -1) = ssh ]]; then
 	chmod -R 700 /home/$quien/.ssh
