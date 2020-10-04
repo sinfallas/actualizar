@@ -1,4 +1,16 @@
-commit 2a3c89c7541e40f7524305e45cc4943e50d8ec19 (HEAD -> master, origin/master, origin/HEAD)
+commit ef5bb49f113e7aaab97e27b58588e98798fadbf9 (HEAD -> master, origin/master, origin/HEAD)
+Author: config <Palencia>
+Date:   Sat Oct 3 23:59:26 2020 -0400
+
+    * se utiliza mask con varios servicios
+
+commit 93f61d6f91d2bc01f5cc65e4cc6a42cec4b2cd93
+Author: config <Palencia>
+Date:   Sat Oct 3 23:18:13 2020 -0400
+
+    * changelog
+
+commit 2a3c89c7541e40f7524305e45cc4943e50d8ec19
 Author: config <Palencia>
 Date:   Sat Oct 3 23:17:48 2020 -0400
 
