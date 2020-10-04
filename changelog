@@ -1,4 +1,16 @@
-commit b33d0275769df5315a0094c7570c539009ee5009 (HEAD -> master, origin/master, origin/HEAD)
+commit 2a3c89c7541e40f7524305e45cc4943e50d8ec19 (HEAD -> master, origin/master, origin/HEAD)
+Author: config <Palencia>
+Date:   Sat Oct 3 23:17:48 2020 -0400
+
+    * se cambia disable por mask
+
+commit f7612b301d9449926f15458ee58791d951990cd9
+Author: config <Palencia>
+Date:   Sat Sep 26 12:04:12 2020 -0400
+
+    * changelog
+
+commit b33d0275769df5315a0094c7570c539009ee5009
 Author: config <Palencia>
 Date:   Sat Sep 26 12:03:59 2020 -0400
 
