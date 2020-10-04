@@ -101,13 +101,13 @@ if [[ $(dpkg --get-selections | grep -w "ModemManager" | awk '{print $1}' | head
 	systemctl disable ModemManager.service
 fi
 if [[ $(dpkg --get-selections | grep -w "avahi-daemon" | awk '{print $1}' | head -1) = avahi-daemon ]]; then
-	systemctl disable avahi-daemon.service
+	systemctl mask avahi-daemon.service
 fi
 if [[ $(dpkg --get-selections | grep -w "speech-dispatcher" | awk '{print $1}' | head -1) = speech-dispatcher ]]; then
-	systemctl disable speech-dispatcher.service
+	systemctl mask speech-dispatcher.service
 fi
 if [[ $(dpkg --get-selections | grep -w "unattended-upgrades" | awk '{print $1}' | head -1) = unattended-upgrades ]]; then
-	systemctl disable unattended-upgrades
+	systemctl mask unattended-upgrades
 fi
 if [[ $(dpkg --get-selections | grep -w "libvirtd" | awk '{print $1}' | head -1) = libvirtd ]]; then
 	systemctl disable libvirtd.socket
@@ -130,7 +130,13 @@ systemctl mask brltty-udev.service
 systemctl mask brltty.service
 systemctl mask geoclue.service
 systemctl mask motd-news.service
-systemctl disable wacom-inputattach@.service
+systemctl mask libvirt-guests.service
+systemctl mask postfix@-.service
+systemctl mask NetworkManager-wait-online.service
+systemctl mask apport-autoreport.service
+systemctl mask apport.service
+systemctl mask mom.service
+#systemctl disable wacom-inputattach@.service
 if [[ $(dpkg --get-selections | grep -w "ssh" | awk '{print $1}' | head -1) = ssh ]]; then
 	chmod -R 700 /home/$quien/.ssh
 fi
