@@ -73,6 +73,7 @@ killall -q freshclam
 mkdir -p /var/log/clamav
 touch /var/log/clamav/freshclam.log
 chmod 666 /var/log/clamav/freshclam.log
+chown -R clamav:clamav /var/log/clamav
 freshclam
 echo -e "\e[00;1;92mActualizando firmas de RKHunter\e[00m"
 rkhunter --update
