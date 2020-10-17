@@ -149,5 +149,5 @@ echo "Finalizado $(date +%d/%m/%Y)" >> $mylog
 echo "Duracion $SECONDS segundos" >> $mylog
 echo "Duracion $SECONDS segundos"
 echo "" >> $mylog
-echo -e "\e[00;1;92mFinalizado...\e[00m"
+echo -e "\e[00;1;92mFinalizado. Se recomienda reiniciar el equipo.\e[00m"
 exit 0
