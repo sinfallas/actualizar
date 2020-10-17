@@ -1,4 +1,16 @@
-commit 87aec4ce28cbcf63850b06c532bea414572f4059 (HEAD -> master, origin/master, origin/HEAD)
+commit 630959f4fe3e4025d80be52bf3a89be9ea0db246 (HEAD -> master, origin/master, origin/HEAD)
+Author: config <Palencia>
+Date:   Sat Oct 17 18:09:34 2020 -0400
+
+    * mensaje de finalizacion
+
+commit 6e3ecff51a3574f698eef2becbb00fb776a0af5f
+Author: config <Palencia>
+Date:   Fri Oct 16 15:37:06 2020 -0400
+
+    * changelog
+
+commit 87aec4ce28cbcf63850b06c532bea414572f4059
 Author: config <Palencia>
 Date:   Fri Oct 16 15:36:42 2020 -0400
 
