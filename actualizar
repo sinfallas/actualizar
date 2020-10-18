@@ -78,20 +78,20 @@ freshclam
 echo -e "\e[00;1;92mActualizando firmas de RKHunter\e[00m"
 rkhunter --update
 echo -e "\e[00;1;92mLimpiando\e[00m"
-apt-fast clean
-apt clean
-apt -y autoremove
 rm -rf /root/.local/share/Trash/*
 rm -rf /home/*/.local/share/Trash/*
 history -c
 echo "" > /home/*/.local/share/fish/fish_history
-#echo "" > /home/*/.config/fish/fish_history
 echo "" > /root/.local/share/fish/fish_history
-#echo "" > /root/.config/fish/fish_history
+apt-fast clean
+apt clean
+apt -y autoremove
 echo -e "\e[00;1;92mDeborphan\e[00m"
 apt -y remove --purge $(deborphan --libdevel) $(deborphan --find-config) $(deborphan)
+echo -e "\e[00;1;92mVerificando paquetes/dependencias\e[00m"
+apt-get check
 echo -e "\e[00;1;92mInitramfs\e[00m"
-update-initramfs -k all -u
+update-initramfs -c -k all
 echo -e "\e[00;1;92mGrub\e[00m"
 update-grub2
 echo -e "\e[00;1;92mRegenerando Caches\e[00m"
