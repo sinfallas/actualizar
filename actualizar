@@ -45,8 +45,6 @@ exec 2>>$mylog
 
 lock || exit_error
 
-sync; echo 3  > /proc/sys/vm/drop_caches
-
 if ! [[ -f /usr/bin/deborphan ]] || [[ $(dpkg --get-selections | grep -w "deborphan" | awk '{print $1}' | head -1) != deborphan ]]; then
 	apt -q update
 	apt -qy install deborphan
@@ -83,8 +81,6 @@ rm -rf /home/*/.local/share/Trash/*
 history -c
 echo "" > /home/*/.local/share/fish/fish_history
 echo "" > /root/.local/share/fish/fish_history
-apt-fast clean
-apt clean
 apt -y autoremove
 echo -e "\e[00;1;92mDeborphan\e[00m"
 apt -y remove --purge $(deborphan --libdevel) $(deborphan --find-config) $(deborphan)
@@ -94,9 +90,14 @@ echo -e "\e[00;1;92mInitramfs\e[00m"
 update-initramfs -c -k all
 echo -e "\e[00;1;92mGrub\e[00m"
 update-grub2
-echo -e "\e[00;1;92mRegenerando Caches\e[00m"
+echo -e "\e[00;1;92mLimpiando Caches\e[00m"
+sync; echo 3  > /proc/sys/vm/drop_caches
+systemd-resolve --flush-caches
+apt-fast clean
+apt clean
 fc-cache -fr
 update-apt-xapian-index -q
+echo "s" | tracker reset --hard
 echo -e "\e[00;1;92mPersonalizando\e[00m"
 if [[ $(dpkg --get-selections | grep -w "ModemManager" | awk '{print $1}' | head -1) = ModemManager ]]; then
 	systemctl disable ModemManager.service
