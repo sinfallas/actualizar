@@ -98,6 +98,7 @@ apt clean
 fc-cache -fr
 update-apt-xapian-index -q
 echo "s" | tracker reset --hard
+journalctl --vacuum-size=50M
 echo -e "\e[00;1;92mPersonalizando\e[00m"
 if [[ $(dpkg --get-selections | grep -w "ModemManager" | awk '{print $1}' | head -1) = ModemManager ]]; then
 	systemctl disable ModemManager.service
