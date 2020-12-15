@@ -1,4 +1,16 @@
-commit f924c5666140365e0713c9351859b57077bf9091 (HEAD -> master, origin/master, origin/HEAD)
+commit 13b75cf116deff8738547e10fe3929f6de48db55 (HEAD -> master, origin/master, origin/HEAD)
+Author: Jesus <sinfallas@gmail.com>
+Date:   Mon Dec 14 20:22:04 2020 -0400
+
+    * nueva limpieza
+
+commit ab3e879b3a208baf7ed43c3a7eeab0bdec307037
+Author: config <Palencia>
+Date:   Fri Nov 20 19:40:16 2020 -0400
+
+    * changelog
+
+commit f924c5666140365e0713c9351859b57077bf9091
 Author: config <Palencia>
 Date:   Fri Nov 20 19:40:00 2020 -0400
 
