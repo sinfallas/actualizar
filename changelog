@@ -1,4 +1,16 @@
-commit 13b75cf116deff8738547e10fe3929f6de48db55 (HEAD -> master, origin/master, origin/HEAD)
+commit 0515471056c0f5d7a6c3fa819a3b7bbffea09c54 (HEAD -> master, origin/master, origin/HEAD)
+Author: Jesus <sinfallas@gmail.com>
+Date:   Sat Jan 9 07:55:52 2021 -0400
+
+    * se agrega validacion de errores en algunos sitios
+
+commit 5a7e659b612cca75de0a64d150925af1eb2cf685
+Author: Jesus <sinfallas@gmail.com>
+Date:   Mon Dec 14 20:22:17 2020 -0400
+
+    * changelog
+
+commit 13b75cf116deff8738547e10fe3929f6de48db55
 Author: Jesus <sinfallas@gmail.com>
 Date:   Mon Dec 14 20:22:04 2020 -0400
 
