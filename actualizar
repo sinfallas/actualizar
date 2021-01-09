@@ -33,6 +33,15 @@ function exit_error() {
 	exit 1
 }
 
+function errores() {
+	if [[ $? = 0 ]]; then
+		echo ""
+	else
+		echo -e "\e[00;31mEl sistema ha tenido un error y no puede continuar.\e[00m"
+		exit 1
+	fi
+}
+
 trap "clean_1; exit" 0 1 2 3 15
 clear
 if [[ "$EUID" != "0" ]]; then
@@ -61,11 +70,15 @@ rm -f $lock1
 rm -f $lock2
 echo -e "\e[00;1;92mActualizando paquetes SNAP\e[00m"
 snap refresh
+errores
 echo -e "\e[00;1;92mActualizando paquetes FLATPAK\e[00m"
 flatpak update
+errores
 echo -e "\e[00;1;92mActualizando paquetes DEB\e[00m"
 apt-fast -q update
+errores
 apt-fast -y --allow-unauthenticated dist-upgrade
+errores
 echo -e "\e[00;1;92mActualizando firmas de virus de ClamAV\e[00m"
 killall -q freshclam
 mkdir -p /var/log/clamav
@@ -73,8 +86,10 @@ touch /var/log/clamav/freshclam.log
 chmod 666 /var/log/clamav/freshclam.log
 chown -R clamav:clamav /var/log/clamav
 freshclam
+errores
 echo -e "\e[00;1;92mActualizando firmas de RKHunter\e[00m"
 rkhunter --update
+errores
 echo -e "\e[00;1;92mLimpiando\e[00m"
 rm -rf /root/.local/share/Trash/*
 rm -rf /home/*/.local/share/Trash/*
@@ -82,23 +97,32 @@ history -c
 echo "" > /home/*/.local/share/fish/fish_history
 echo "" > /root/.local/share/fish/fish_history
 apt -y autoremove
+errores
 echo -e "\e[00;1;92mDeborphan\e[00m"
 apt -y remove --purge $(deborphan --libdevel) $(deborphan --find-config) $(deborphan)
+errores
 echo -e "\e[00;1;92mVerificando paquetes/dependencias\e[00m"
 apt-get check
 echo -e "\e[00;1;92mInitramfs\e[00m"
 update-initramfs -c -k all
+errores
 echo -e "\e[00;1;92mGrub\e[00m"
 update-grub2
+errores
 echo -e "\e[00;1;92mLimpiando Caches\e[00m"
 sync; echo 3  > /proc/sys/vm/drop_caches
 systemd-resolve --flush-caches
+errores
 apt-fast clean
 apt clean
 fc-cache -fr
+errores
 update-apt-xapian-index -q
+errores
 echo "s" | tracker reset --hard
+errores
 journalctl --vacuum-size=50M
+errores
 echo -e "\e[00;1;92mPersonalizando\e[00m"
 if [[ $(dpkg --get-selections | grep -w "ModemManager" | awk '{print $1}' | head -1) = ModemManager ]]; then
 	systemctl disable ModemManager.service
