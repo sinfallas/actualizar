@@ -1,4 +1,16 @@
-commit 0515471056c0f5d7a6c3fa819a3b7bbffea09c54 (HEAD -> master, origin/master, origin/HEAD)
+commit 11ec4b954aaab2cdfd70cfcc507a2d0694914598 (HEAD -> master, origin/master, origin/HEAD)
+Author: Jesus <sinfallas@gmail.com>
+Date:   Sun Jan 31 15:30:25 2021 -0400
+
+    * bugfix trap
+
+commit 41f4dcb0b6786e65a66e07419a0bd53e2f5bed77
+Author: Jesus <sinfallas@gmail.com>
+Date:   Sat Jan 9 07:56:08 2021 -0400
+
+    * changelog
+
+commit 0515471056c0f5d7a6c3fa819a3b7bbffea09c54
 Author: Jesus <sinfallas@gmail.com>
 Date:   Sat Jan 9 07:55:52 2021 -0400
 
